@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="{{url_for('static', filename='stylesheet1.css')}}">
+        <title>テキスト分析ページ</title>
+    </head>
+    <body>
+        <header>
+            <h1 id="header-title">Home</h1>
+        </header>
+
+        <div id="wrapper-all">
+            <div id="wrapper-filter-and-maintext">
+                <div id="wrapper-filter">
+                    <select id="filter">
+                        <option value="not-chosen">フィルターを選択</option>
+                        {% for filter_reference_name, filter_dispaly_name in valid_filter_displayed_names.items() %}
+                            <option value="{{ filter_reference_name }}">{{ filter_display_name }}</option>
+                        {% endfor %}
+                    <script src="{{url_for('static', filename='script2.js')}}"></script>
+                    </select>
+                </div>
+
+                <section id="main">
+                    <div id="wrapper-main-text">
+                        <p id="doc-title">{{ filename }}</p>
+                        <div id="main-text">
+                            {% for paragraph in docx %}
+                                <p class="{{ paragraph[0] }}"
+                                {% for tag in paragraph %}
+
+
+
+                                {% endfor %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div id="data-bar">
+
+            </div>
+        </div>
+    </body>
+    <style>
+        {{style}}
+    </style>
+
+    <script>
+        const filters = {{ filters_and_class_names }};
+    </script>
+</html>
